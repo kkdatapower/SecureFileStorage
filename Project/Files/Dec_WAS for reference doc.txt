@@ -1,0 +1,1715 @@
+
+
+
+--------------------------------------------------------------------------------------------
+Below Messaging JMS links sent by Narendhar
+
+
+http://www.packtpub.com/article/messaging-with-websphere-application-server-7.0-part1
+http://www.packtpub.com/article/messaging-with-websphere-application-server-7.0-part2
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+                               Installing the Websphere Application Server version 7 on AIX
+
+Below is the process
+
+Assume your ip is 172.29.140.90 and then you want to copy the files / scripts from ip 172.29.147.3
+
+firstly create a empty directory with software as the directory name in your terminal in /usr directory
+
+Step 1, run this command (scp -r u0009930@172.29.147.3:/usr/software/scripts .) (the dot.is very important, it represents the present working directory)
+
+The above command is used to copy the scripts from the u0009930/172.29.147.3 (remote machine) ip to your present working directory (pwd) which is /usr/software
+
+After copying the scripts then you have to go to path /usr/software/scripts and then run these three commands ./setfs.sh , ./setweb.sh and ./setbas.sh (by running these commands the space will increase in all the directories.
+
+After running these three commands, now comeout of the scripts folder and copy the s/w WAS7 file using the scp command.
+
+scp -r u0009930@172.29.147.3:/usr/software/WAS7 .
+
+Go to WAS7 directory
+
+create a new directory with any name / example (krraanthi)
+
+move the C1G2QML.tar.gz file to krraanthi and extract the file. use this command (mv C1G2QML.tar.gz krraanthi)
+
+now go to krraanthi directory and Extract the tar file C1G2QML.tar.gz (extraction means first unzip the file using (gzip -d CIG2QML.tar.gz) command and then use (tar -xvf C1G2QML.tar)
+
+now give command (vncserver) and open TightVNc Viewer (this is like terminal only in AIX, where you can run the commands)
+
+go to the programs and click on TightVNC Viewer and connect to the present IP which you are working on (mention the ip address details)
+
+It will popup a small window asking for password (sarasu10)
+
+step 2, In the path /usr/software/WAS7/krraanthi run command ./launchpad.sh (this will install the s/w WAS7)
+
+one window will open on the TightVNC Viewer (Websphere application server Network deployment window), on the left side navigation you will find the websphere application server installation details (click on that), that action will open a wizard where you actually start the installation process.
+In the installation process, click on none in the third page, it will popup a widnow - Says yes and click on finish.
+
+goback to terminal and remove all the files from the krraanthi directory.
+
+go to WAS7 from krraanthi and move C1G2RML.tar to krraanthi directory,extract this file (tar -xvf C1G2RML.tar)
+
+step 3, go to TightVNC viewer and run ./launchpad.sh (this will install the IHS) (IHS is HTTP Server) on the path /usr/software/WAS7/krraanthi
+
+This will open popup with an websphere application server network deployment window on. On the lfeft side of the page on the naviagtion click on IBM HTTPServer installation and on the same page click on launch the installation wizard for IBM HTTPServer.
+
+Now antoher wizrd will popup. start and complete the installation process as similarly done for Appserver and finish.
+
+Now go back to the krraanth directory and delete the files
+
+Now go to WAS7 directory and copy the 7.0.0.21-WS-UPDI-AixPPC64.zip to krraanthi directory.
+
+after that go to krraanthi directory and extract this file 7.0.0.21-WS-UPDI-AixPPC64.zip   use (jar -xvf)
+
+step 4, go to TightVNC Viewer UpdateInstaller path (/usr/IBM/WebSphere/UpdateInstaller) run command ./install.sh
+
+give the fixpak path (/usr/IBM/WebSphere/UpdateInstaller) in the process of installing the fixpak, click relaunch button in the installation process first select the websphere Applciation server from the drop down list then in the last page click on the relaunch button in the installation process and then select the HTTP Server from the drop down list then in the last page click on the relaunch button in the installation process and then select the plugin from the drop down list and in the last page click on finish and complete the installation process.
+
+The Was7 installation process is complete.
+
+Here we have installed WAS7, IHS and fixpak
+
+
+----
+Uninstallation process
+
+
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+                                        WAS 8.5 Installation on AIX
+
+Below is the process
+
+Assume your ip is X and then you want to copy the files (software) from ip Y
+
+firstly create a empty directory with software as the directory name in your terminal in /usr directory
+
+Run this command (scp -r u0009930@172.29.147.3:/usr/software/WAS8.5 .) (the dot.is very important, it represents the present working directory)
+
+The above command is used to copy the BPM software from the u0009930/172.29.147.3 (remote machine) ip to your present working directory (pwd) which is /usr/software/WAS8.5
+
+Now go to path /usr/software/WAS8.5/IM extract the IM file.(Check with trainer about this line and correct it)
+Create another Directory folder and move the files to the newly created folder and EXTRACT the files one by one.
+
+now give command (vncserver) on the same path. (/usr/IBM/WebSphere/AppServer/WAS8.5
+and open TightVNc Viewer (this is like terminal only in AIX, where you can run the commands) go to the programs and click on TightVNC Viewer and connect to the present IP which you are working on (mention the ip address details)
+Now run command ./IBMIM
+After running this command, the IM (Installation Manager) GUI will open.
+Go to the "FILE" and select "PREFERENCES". This will take you to the page where you can add Repositories,(means select add repositories button). The path is /usr/IBM/WebSphere/AppServer/WAS8.5 and select repository at last. (Basically you need to mention the path details where the WAS8.5 software is located).
+Next apply and click OK
+Next click other options in next comming pages.(checkin WAS8.5.0 boxes and click OK)
+Then click on the install button.
+This will take you to the next page where you can see some options like(INSTALL, UPDATE and MODIFY) Select Install and Click Install option.
+This will start and complete the installation process.
+Above the same page you should see a Installation success message with the Green Tick mark. 
+(Here the WAS8.5 installation completes)
+Next follow the same process for WAS8.5 Fix pack update.
+Next follow the same process to install HTTPS Server (webserver)
+Next follow the same process to update the HTTPS Server.
+Here the installation process will complete.
+
+************************************************************************************************************************************************************
+************************************************************************************************************************************************************
+************************************************************************************************************************************************************
+
+                                         DB2 installation
+
+Below is the process.
+
+The process will complete with installing DB2 and installing the fixpaks for db2
+
+Firstly check if there is enough free space on the disk, make sure there is 3gb free space on opt directory and 1gb free space on the home directory.
+
+use (chfs -a size=-1G /tmp) to decrease 1gb space from tmp directory.It will give a message what ever is the filesystem size changed to
+
+use (chfs -a size=+1G /opt) to increase 1gb space to opt directory.It will giva message what ever is the filesystem size changed to
+
+go to path /usr/software and run command (scp -r u0009930@172.29.147.3:/usr/software/DB2-9.7 .) (. dot at end of the command is very important, it represents your present working directory (pwd))
+
+After running the scp command you will get two software files (DB2_97_limited_CD_AIX.tar.gz) and (v9.7fp8_aix64_universal_fixpack.tar.gz)
+
+now unzip the first software file (DB2_97_limited_CD_AIX.tar.gz) using the gunzip which is (gzip -d DB2_97_limited_CD_AIX.tar.gz) command, if it says there is no enough space. increase the directory space and then run the command again.
+
+After unzip the file extract the file with this command (tar -xvf DB2_97_limited_CD_AIX.tar.gz), it will extract the tar files.
+
+Run command (vncserver) on the terminal.
+
+Go to the TightVNC viewer then go to path [usr/software/DB2-9.7/wser] run command ./db2setup
+
+Then a GUI window will open, there you have to click on "install Product" from the navigation window. Then you have to click on next and choose the related components in the installation process.
+
+Note : if the GUI window is not opening automatically. Then run command (export JAVA_COMPILER=none)
+
+Below is the detailed process of installation using GUI (pages)
+Introduction - click Next button
+software Licence --- click on Accept (read on IBM terms)
+Installation type --- select custom and click next
+Installation action ---select third option
+select features to install -click next
+languages --- click next
+Documentation --- click next
+SA MP - select donot install SA MP
+DAS User -Password Sarasu10 (confirm password) click next
+Instance setup -create a DB2 instance
+Instance Owner -Password sarasu10 (click next)
+Fenced user -password sarasu10 (click next)
+Communication ---click on configure option
+Tools Catalog - Donot setup your DB2 tools catalog
+Notification setup --- Donot setup yor DB2 server to send notification (click next)
+Summary --- Finish
+after installation you will see a message Setup has completed successfully - click finsh
+
+
+
+Before applying the fixpack to DB2, complete the below tasks in db2 and move.
+
+su - db2inst1 (command, through this command you will login to database)
+
+next run ---> db2stop
+
+next run ---> exit
+
+next run (su - dasusr1)
+
+next run (db2admin stop)
+
+next run (exit)
+
+now you will go to the path,/usr/software/DB2-9.7/krraanthi/universal and run ./installFixPack
+
+It will ask for (Enter full path name for the install directory)
+
+mention this path there (/opt/IBM/db2/V9.7 (enter)
+
+after running it will finally give the message the execution completed successfully
+
+next check the db2 version by going to the patch (/opt/IBM/db2/V9.7/bin) run ./db2level
+
+here you can see the db2 version and path where the product is installed "/opt/IBM/db2/V9.7"
+
+now login to database using this command (su - db2inst1)
+
+next run (db2level)
+
+next run (db2start) this command will create a sample database.
+
+You will get the message below after running the above command
+
+(SQL1063N  DB2START processing was successful)
+
+
+next run (db2sampl) yes its only db2sampl not db2sample
+
+message you get after running the above command
+
+(Creating database "SAMPLE"...
+ Connecting to database "SAMPLE"...
+ Creating tables and data in schema "DB2INST1"...
+ Creating tables with XML columns and XML data in schema "DB2INST1"...
+
+ 'db2sampl' processing complete.)
+
+next run (db2 connect to sample) this will start the database
+
+message you get after running the above command
+
+(Database Connection Information
+
+Database server        = DB2/AIX64 9.7.8
+SQL authorization ID   = DB2INST1
+Local database alias   = SAMPLE)
+
+$ db2 list db directory
+
+System Database Directory
+
+Number of entries in the directory = 1
+
+Database 1 entry:
+
+Database alias                       = SAMPLE
+Database name                        = SAMPLE
+Local database directory             = /home/db2inst1
+Database release level               = d.00
+Comment                              =
+Directory entry type                 = Indirect
+Catalog database partition number    = 0
+Alternate server hostname            =
+Alternate server port number         =
+
+$ db2 list active databases
+
+                          Active Databases
+
+Database name                              = SAMPLE
+Applications connected currently           = 1
+Database path                              = /home/db2inst1/db2inst1/NODE0000/SQL00001/
+
+From here you can go to admin console and start creating / configuring the JDBC connections
+-------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+                                                     Ldap installation process (LDAP - LightWeight Director Access Protocol)
+
+
+Before installing ldap make sure you install the ldap on the same place where you have DB2 installed.
+
+
+check space, make sure there is atleast 3gb space in opt and 1gb space free in home directories.
+copy the TDS6.2 directory
+use command (scp -r u0009930@172.29.147.3:/usr/software/TDS6.2 .)
+you can see four files are copied.
+open tdsauto.sh and go through step by step, this document talks about creating user groups, extracting TDS software, giving permissions to TDS directory, installing TDS software in silent mode, extracting fixpacks for TDS6.2, then installing fix pack for TDS6.2, then created a directoy instance.
+
+now login to database
+su - db2inst1
+db2start
+exit
+
+after exiting from database now run the script (./tdsauto.sh) here after running the script ldap will be installed.(so installation completed)
+
+Note : bin and sbin are mostly used to run the commands
+
+you are in the path /opt/IBM/ldap/V6.2/sbin
+
+now start the environment with below command
+
+(. ~idsldap/.profile)
+
+after that run (ibmslapd) (ldap server will start with this command)
+Note : you can see the ldap port - 389)
+
+now you will create / add  a suffix
+run command (idscfgsuf -s dc=ibm,dc=com)
+Note : if you get an error saying the server is running.(then stop the server with this command (ibmslapd -k stop))
+now again run the suffix command (idscfgsuf -s dc=ibm,dc=com)
+
+go and check if you find any files with the setup2.ldif, setup3.ldif or setup4.ldif in the remote ip from where you copied the ldap software (follow this path /usr/software/scripts)
+copy these files to the tmp directory using scp -r command.
+run (idif2db -help)
+
+run command (ldif2db -i /tmp/setup3.ldif) here you can see the profiles in the setup3.ldif file)
+now run command (ldif2db -i /tmp/setup4.ldif) here you can see the profiles in the setup4.ldif file)
+
+now go to bin and run (ldapsearch -b dc=ibm,dc=com -D cn=root -w sarasu10 objectclass=*) this command, after running this command you will get all the list of profiles from setup3 and setup4 files which are 16 out of 16 files and from setup3 and 5 out of 20 from setup4 files
+
+Here we have done ldap installation
+---> running script (./tdsauto.sh)
+--->environment start (. ~idsldap/.profile)
+---> server start (ibmslapd)
+---> create / add suffix (idscfgsuf -s dc=ibm,dc=com)
+---> ldapsearch
+
+
+Now create one AppSrv01 /dmgr01, start the server and check the ports and open the admin console (process is same for AppSrv01 and dmgr01)
+
+go to security ---> then Global Security ---> this will open a page
+---> below the user account repository ---> Available realm definitions  choose (standalone dlap Registry) and click on configure ---> this will take you to another page
+---> fill the details (primary administrative user name : wsadmin)  
+---> Type of LDAP server (IBM Tivoli Directory Server)
+---> Host (any host name where the ldap is installed)
+---> Port 386 (which is already mentioned.
+---> Base distinguished name DN (dc=ibm,dc=com)
+---> Bind distinguished name DN (c=root)
+---> Bind password (sarasu10)
+then click on apply and review changes and synchronize the nodes
+
+Click on test connection and review changes and synchronize
+Go back to global security and Available realm definitions  and choose the standalone LDAP Registy and click on (set as current) and apply.
+now then stop (if it is a stand alone server or dmgr and start the server or dmgr)
+
+after that the (best practice would be stopping the clusters first, then nodes and dmgr, then start the dmgr and start the nodes)
+
+now go to the directory where you saved the setup3.ldif file and open with more command and see the user name for example (wsadmin) and password (was4me)
+Then try to login to admin console with this user name and password, now you will be able to login to the admin console.
+
+Note : to check the details like primary administrative user id open the security.xml file
+follow this path to open the security.xml file AppServer/Profiles/AppSrv01/run (config) then (cells) then (172Node01cell)  ---> here you can see (security.xml) file ---> open this file with more command (more security.xml) ---> the vieditor will open, here you can edit the details if you want. (here you have to uncomment)
+
+-------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+                                                        SSL (Secure Sockets Layer)
+
+                                                        One way SSL authentication
+
+Follow the steps to enable SSl (HttpS) request in IBM HTTPServer on AIX
+
+1.Install IBM HTTPServer in your system
+2.Start IBM HTTPServer
+3.Follow the step to enable SSL in IBM HTTPServer
+       1. create a Key database with ikeyman
+       2. Upate the key file directive in httpd.conf to that key database and uncomment the directives.
+
+Now we will do these steps one by one
+
+Open webserver 150 machine
+first open TightVNC Viewer and go to Httpserver ---> bin
+you can see ikeyman.sh (run ./ikeyman) ---> one GUI window will open ---> create Key database here ---> click on the create new database - key.kdb (default)
+put the path till httpserver only
+expiration time, click (60 days)
+click on stach password (click OK) on this page
+Now keydatase is created ---> then now we have to create a new certificate ---> select create a new selfsigned certificate ----> selfcert1 (mention) --- you can see optionals to fill like orgnaization "NITCO" ,company name etc not mandatory to fill. click OK (now certificate created)
+
+now again go to the  150 machine (Websphere/HTTPServer/bin) ----> do ls ---> open "conf" directory ---> htpd.conf (open in vi mode (editable mode) ---> /ssl (enter) ---> you can see load module and ssl module ---> here you have to uncomment the # symbol in all the lines below for 5 to 6 lines. (escape and X to delete in vi editor)
+Now if you do uncomment  it will become active.
+
+Note :key.kdb edit (this we have mentioned in the GUI when created the key database)
+
+esc bin/
+
+quit the Vi editor
+:wq! (enter)
+
+cd ..
+cd bin
+ls
+ls -lrt
+now you can see these three new files which we uncommented
+
+Note : for example : go to the new browser open http://hostname (enter) (we need with https here) so what we need to do is https browser will ask the authentication of the webserver to enable security that is https.
+
+now go to path WebSphere/httpserver/bin ---> stop the server with command (./apachctl -k stop)
+now start the server with this command (./apachctl -k start)
+
+
+now go to the new browser and open new (https://hostname) here it should ask few details about the certificate. (if you don't see any certificate, try to login with another browser)
+generally it will give the certificate link, then you have to accept it (this will come only once for acceptance)
+
+
+
+Two way authentication means
+
+
+request hit the server, server will ask the certificate from browser, browser will send the certificate.
+
+
+
+Note : Download winscp (this is to connect from windows to AIX)
+from browser we have to import the file which we copied
+
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+                                                        MQ (Message Queue)
+
+-------------------------------------------------------------ONE -WAY COMMUNICATION--------------------------------------------------------------------------------
+
+FIRST YOU HAVE TO INSTAILL THE MQ CLIENT SOFTWARE IN THE CLIENT MACHINE. (using the smit command)
+
+STEPS FOR SERVER MACHINE:
+STEP-1
+-----------
+create one queue manager and start it
+
+crtmqm QMA
+
+strmqm QMA
+
+STEP-2
+-----------
+Go to MQSC commands
+runmqsc QMA
+in the script define the following
+DEFINE QLOCAL(QA)
+DEFINE CHL(QMAC) CHLTYPE(SVRCONN) TRPTYPE(TCP) MCAUSER('mqm')
+DEFINE LISTENER(QMAL) TRPTYPE(TCP) PORT(1634)
+START LISTENER(QMAL)
+START CHL(QMAC)
+say end
+Thus the server arramgements are over
+Note:
+see the attachment for file which contains the server side coding,
+Step-3
+-----------
+Come to client machine
+switch to user and go to the '/' (root) directory
+cd $HOME
+open the following file /.bashrc
+vi .bashrc
+
+put the following code at the end
+
+MQSERVER=CLIENT.QM_ORANGE/TCP/'hostname'; export MQSERVER
+
+CLIENT.QM_ORANGE =channl name in this case QMAC
+hostname = ip address of the server machine and it's port number in this case
+
+
+
+'192.168.12.245(1634)
+
+from the server machine it self put message
+./amqsputc QA QMA
+HI
+DOUBLE ENTER
+go to server machine and get the message from there
+./amqsget QA QMA
+message<HI>
+now put one message from server
+./amqsput QA QMA
+HELLO
+get the message from client
+./amqsgetc QA QMA
+message<HELLO>
+
+*********************************************************TWO WAY Communication between QMS*****************************************************************************
+
+In this post i am going to explain how to implement two way communication between the two Queue Managers.This can be achieved by implementing two channel between the queue managers.
+Follow the below steps to achieve this
+Step-1
+---------
+create and start the two queue managers one by one
+
+crtmqm QM1
+
+crtmqm QM2
+
+strmqm QM1
+
+strmqm QM2
+
+Step-2
+-------
+Now run the scripting of one queue manager
+
+runmqsc QM1
+
+define and start the listener
+define listener(1QML) trptype(tcp) port(1363)
+start listener(1QML)
+
+define transmit queue
+define qlocal(1QT) usage(xmitq)
+
+now define qremote queue
+define qremote(1QR) rqmname(QM2) rname(2QL) xmitq(1QT)
+
+Now define one channel to send a message to BQM
+
+define channel(1TO2) chltype(sdr) conname('localhost(1364)') trptype(tcp) xmitq(1QT)
+
+and start the channel
+
+start channel(1TO2)
+
+Now define one local queue to the messages send by BQM
+
+define qlocal(1QL)
+Now define channel to recieve message from BQM
+
+define channel(2TO1) chltype(rcvr) trptype(tcp)
+and start the channel
+start channel(2TO1)
+
+now come out of script by typing 'end' and strike enter
+
+Step-3
+------
+NOw go to the scripting of second queue manager
+
+runmqsc QM2
+
+define the listener for the queue manager and start it
+
+define listener(2QML) trptype(tcp) port(1364)
+
+start listener(2QML)
+
+Now define one local queue to get the message from AQM
+
+define qlocal(2QL)
+
+Now define the receiver side of channel ATOB and start it
+
+define channel(1TO2) chltype(rcvr) trptype(tcp)
+
+start channel(1TO2)
+
+Now define the transmittion queue for BQM to AQM communication
+
+define qlocal(2QT) usage(xmitq)
+
+Now define one remote queue for the transmittion queue
+
+define qremote(2QR) rqmname(QM1) rname(1QL) xmitq(2QT)
+
+define the sender side of channel BTOA and start it
+
+define channel(2TO1) chltype(sdr) conname('localhost(1363)') trptype(tcp) xmitq(2QT)
+start channel(2TO1)
+
+
+now come out of script by typing 'end' and strike enter
+
+Step-4
+------
+Now put a message into the remote queue of AQM
+
+./amqsput 1QR QM1
+Hi queue manager BQM
+from AQM
+
+[double enter]
+
+Now check whether the message is getting from local queue of BQM
+
+./amqsget 2QL QM2
+message<Hi queue manager BQM>
+message<from AQM>
+
+Thus one way that is AQM to BQM is successfully achieved
+
+Now put a message into the remote queue of BQM
+
+./amqsput 2QR QM2
+Hi queue manager AQM
+from BQM
+
+now check whether the message is getting from the local queue of AQM
+
+./amqsget 1QL QM1
+message<Hi queue manager AQM>
+message<from BQM>
+
+thus two way communication is successfully achieved
+
+
+
+
+------------------------
+------------------------
+------------------------
+  MQ Commands
+
+(dspmqver) this command will tell you the version of MQ
+(dspmq) this command will tell you what are the Qmgrs created and their status with individual QMNAMES
+(endmqm) this command will end the QMgr
+
+
+**************************************************************SSL*****************************************************************************************************
+dis qmgr all
+
+SSLKEYR(Defaultkdb.key)
+
+1) enter into the QMGR as runmqsc A
+   alter qmgr SSLKEYR('/var/mqm/qmgrs/A/ssl/a') SSLEV(NABLED)
+  
+   alter chl(A.B) chltype(sdr) SSLciph(RC4_MD5_US)
+   alter chl(B.A) chltype(rcvr) SSLciph(RC4_MD5_US)
+
+refresh security type(ssl)
+
+2)enter into the QMGR as runmqsc B
+   alter qmgr SSLKEYR('/var/mqm/qmgrs/B/ssl/b') SSLEV(NABLED)
+
+   alter chl(A.B) chltype(rcvr) SSLciph(RC4_MD5_US)
+   alter chl(B.A) chltype(sdr) SSLciph(RC4_MD5_US)
+
+refresh security type(ssl)
+
+3)vncserver--Go to cd /usr/mqm/java/jre64/jre/bin
+  ./ikeyman
+   create a new Database as (a.kdb)
+4) Save as /var/mqm/qmgrs/A/ssl
+5) create New self-signed certificate  (key label--ibmwebspheremqa)
+6)Extract the self-signed certificate in the path as ---a.arm--->/tmp
+7)create a new Database as (b.kdb)
+8) Save as /var/mqm/qmgrs/B/ssl
+9) create New self-signed certificate  (key label--ibmwebspheremqb)
+10)Extract the self-signed certificate in the path as ---b.arm--->/tmp
+11)Go to signer certificate A and add b.arm and Go to signer certificate B and add a.arm
+
+
+12) Restart the channels as 
+                         -->runmqsc A stop chl(A.B)
+                         -->runmqsc B stop chl(B.A)
+                         -->runmqsc A start chl(A.B)
+                         -->runmqsc B start chl(B.A)
+
+
+IF THE QMGRS ARE STARTED  THEN THE SSL CONFIGUARITION IS SUCESSFULL
+
+**********************************************************************************************************************************************************************
+                                              ==========CLUSTER===================
+
+In the CLUSTER environment if there are 3 QMGRS(QM1--QM2--QM3) make 2 as Full Respositories and 1 as PARTIAl Respositories
+
+--> runmqsc QM1                         |
+    alter qmgr repos(CLUSTERQM)         |
+--> runmqsc QM2                         | --> TO MAKE  Full Respositories
+    alter qmgr repos(CLUSTERQM)         |
+
+--> runmqsc QM1
+    define listener(list) trptype(tcp) port(3000)
+    start listener(list)
+    dis lsstatus(list)
+   define ql(CLUSQ)  cluster(CLUSTERQM)
+
+  define chl(TO.QM1) chltype(clusrcvr) trptype(tcp) conname('172.29.151.130(3000)') cluster(CLUSTERQM)
+  define chl(TO.QM2) chltype(clussdr) trptype(tcp) conname('172.29.151.130(3001)') cluster(CLUSTERQM)
+
+end
+
+--> runmqsc QM2
+    define listener(list) trptype(tcp) port(3001)
+    start listener(list)
+    dis lsstatus(list)
+  define ql(CLUSQ)  cluster(CLUSTERQM)  
+
+  define chl(TO.QM2) chltype(clusrcvr) trptype(tcp) conname('172.29.151.130(3001)') cluster(CLUSTERQM)
+  define chl(TO.QM1) chltype(clussdr) trptype(tcp) conname('172.29.151.130(3000)') cluster(CLUSTERQM)
+
+end
+
+--> runmqsc QM3
+    define listener(list) trptype(tcp) port(3002)
+    start listener(list)
+    dis lsstatus(list)
+    
+  define chl(TO.QM3) chltype(clusrcvr) trptype(tcp) conname('172.29.151.130(3002)') cluster(CLUSTERQM)
+  define chl(TO.QM1) chltype(clussdr) trptype(tcp) conname('172.29.151.130(3000)') cluster(CLUSTERQM)
+
+end
+
+--> To put the Message
+Go to the path--> cd /usr/mqm/samp/bin
+                  ./amqsput CLUSQ QM3  |
+   enter                               |--> put message in 2 times
+                  ./amqsput CLUSQ QM3  |
+
+-->To see the Message
+Go to the path--> cd /usr/mqm/samp/bin
+                  ./amqsget CLUSQ QM1 and ./amqsget CLUSQ QM2
+
+-->If the message should go to the QMGRS alternatively we need to 
+
+  alter the 2 Full Respositories(QM1--QM)  as-->  alter ql(CLUSQ) DEFBIND(NOTFIXED)
+
+  Now put the message and see the message  alternatively in the QMGRS
+
+--> If we want to check the Currentdepth of the QMGR
+    
+    runmqsc QMGR(QM1(or)QM2)
+    -> dis ql(CLUSQ) curdepth 
+
+***********************************************************************************************************************************************************************
+**********************************************************************************************************************************************************************
+                                                           SEREVR-CLIENT COMMUNICATION
+
+--->runmqsc QMGR
+  define chl(SERVER.C) chltype(svrconn) trptype(tcp) mcauser('mqm')
+-->create a USER as TEST(smitty-security&users-users-Add a User--user Name TEST)
+    
+    switch to TEST as su - TEST
+ Go  to cd /var/mqm {Find . profile -File(ls -a)}
+     vi .profile
+
+-->add these lines--MQSERVER=SERVER.C/tcp/'172.29.151.130(1414));
+                 export MQSERVER
+-->save and quit
+
+switch to MQM as(su - mqm)
+
+-->runmqsc QMGR
+    
+  add these lines--> set CHLAUTH(*) TYPE(BLOCKUSER) USERLIST('nobody','mqm')
+                     set CHLAUTH(SERVER.C) TYPE(BLOCKUSER) USERLIST('nobody')
+
+end
+                                          |------------------------------------------------------------|
+--> put the message in su - mqm           |   If we want to give the Authorization permission          |
+                                          |                                                            |
+    at cd /usr/mqm/samp/bin               |   ---> setmqaut -m E -t qmgr -p tset +connect              |
+                                          |                                                            |
+    as ./amqsput CLUSQ                    |   If we want to give the Putc and Getc permission          |
+                                          |                                                            |
+ EXIT                                     |   --> setmqaut -m E -n CLUSQ -t queue -p test +put +get    |
+                                          |------------------------------------------------------------|                                                            |
+-->switch to TEST (su - TEST)             
+   
+--> check the message in su - TEST
+  
+     at cd /usr/mqm/samp/bin
+
+    as   ./amqsgetc CLUSQ
+
+
+***********************************************************************************************************************************************************************
+***********************************************************************************************************************************************************************
+
+                                                 ****************PUB-SUB**************
+
+--> runmqsc A
+   
+   define ql(LQ)
+   define topic(POLITICS) topicstr(NEWS)
+   define sub(TRS) topicstr(NEWS) dest(LQ)
+-->runmqsc B
+
+   define ql(LQ)
+   define sub(TDP) topicstr(NEWS) dest(LQ)
+
+ --->Go to cd /usr/mqm/samp/bin                                               |  --> Duplicate session                                                         
+  									      |Go to cd /usr/mqm/samp/bin
+./amqspub NEWS C                                                              |
+		                                                              |./amqssub NEWS C
+message	
+message
+
+./amqsget LQ C											
+ 
+
+
+=======================================================================================================================================================================***********************************************************************************************************************************************************************
+                                                      ++++++++++++++ MULTI - INSTANCE ++++++++++++++++++++ 
+
+1 -AIX BOX
+
+In this when we do multi instanace between to QMGRS one will be in ACTIVE and the other will be in STANDBY
+
+--> start NFS in both QMGRS as (smit-communication-NFS-NetworkFilesysyem-configureNFSonthissystem-startNFS)
+--> create a directory QMGR at /var as
+    mkdir cd /var/SHAREDMI
+--> create a directory as MIQMGR  at cd /var/SHAREDMI as
+    cd /var/SHAREDMI  mkdir  MIQMGR
+--> create 2 files as logs and qmgrs  at cd /var/SHAREDMI/MIQMGR as
+    cd /var/SHAREDMI/MIQMGR   mkdir  logs qmgrs  
+
+--> Give permissions to all files and directories in var/SHAREDMI
+
+-->Go to vi /etc/hosts
+   add the 2 QMGRS hostnames in both of them QMGRS as
+   172.29.151.130  eidikointernal.com---> of 1 QMGR
+   172.29.151.145  nitcointernal.com ---> of 2 QMGR
+-->Add a Directory to Exports List to 1ST QMGR as
+     Pathname of directory to export   [/var/SHAREDMI]                     (smit-communication-NFS-NetworkFilesysyem-Add a Directory to Exports List)
+
+
+2nd - AIX BOX
+
+--> start NFS in both QMGRS as (smit-communication-NFS-NetworkFilesysyem-configureNFSonthissystem-startNFS)
+--> create a directory in both QMGRS at /var as
+    mkdir cd /var/SHAREDMI
+-->Go to vi /etc/hosts
+   add the 2 QMGRS hostnames in both of them QMGRS as
+   172.29.151.130  eidikointernal.com---> of 1 QMGR
+   172.29.151.145  nitcointernal.com ---> of 2 QMGR
+
+-->Add a File System for Mounting  to the 2nd QMGR as
+    
+    Pathname of mount point           [/var/SHAREDMI]                       (smit-communication-NFS-NetworkFilesysyem-Add a File System for Mounting)
+
+    Pathname of remote directory      [/var/SHAREDMI]
+
+    Host where remote directory resides  [172.29.151.130  eidikointernal.com]
+
+
+
+1st -AIX BOX
+
+--> Go to cd /var --chown -R 777 mqm:mqm SHAREDMI
+
+---> switch to MQM as (su - mqm)
+
+     ctrmqm -ld/var/SHAREDMI/logs-md/var/SHAREDMI/qmgrs -q MIQMGR
+     dspmqinf -o command MIQMGR (you will get a command paste in the 2nd AIX BOX in su - mqm  It should the command is added)
+
+---> strmqm -x MIQMGR in both 1st -AIX BOX and  2nd - AIX BOX
+
+      check the status of the QMGR as ---> dspmq
+     you can observe in    1st -AIX BOX  as (RUNNING)
+                           2nd -AIX BOX  as (STANDBY)
+
+**********************************************************************************************************************************************************************
+**********************************************************************************************************************************************************************
+                           ************************************WAS***********************************************
+
+                                                           Admin console
+
+            Creating Cluster
+
+For example : you have two cluster members, you need to create them in clusters(admin console)
+Go to servers on the navigation window
+--->click on clusters
+--->click on websphere application server clusters
+---> click create new cluster ---> cluster name ---> Add member (from the drop down select the Node1 for example)
+---> add another member from the drop down, select the Node2 ---> finish.
+
+
+            Creating a Web Server
+
+Always choose webserver1 (lowercase) while creating the web Server
+
+          Installing a default Application / deploying an application
+
+go to Application
+---> Application Types
+---> (first page) you have two options to choose from local file and remote file  ---> you have to choose remote file (browse)---> choose usr ---> IBM --> WebSphere ---> Appserver ---> InstallableApps ---> defaultfile.ear (something with ear it will be i don't remember)
+
+---> then start the cluster
+---> then start the web server (then generate plugin and propagate plugin.
+---> now hit the application
+---> open new tab (window-page) ---> give http://172.29.141.151/snoop
+---> result page ---> two nodes will change simultaneously (please observe)
+                       
+
+                                                    Configure a JDBC Connection:
+
+
+Login to the admin console (through clustering / dmgr ) link is (http://172.29.141.151:9060/admin)
+
+Go to Resources in the navigation window
+---> next go to JDBC
+---> next click on JDBC providers
+---> (first page) select the scope what ever you are creating the connection with example (cells:172Cell01:nodes:172Node01:servers:Red1) and create a new jdbc provider then click next, it will go to next page ---> --->(second page) enter database classpath information which is (directory location for ) /opt/IBM/db2/V9.7/java  ---> below is native directory path mention (/opt/IBM/db2/V9.7) ---> then click next --->
+--->(third page) summary, finish. Review, syncronize changes with Nodes.
+You can see (DB2 Universal JDBC Driver Provider is created)
+
+                               
+                                                  Configure a Datasources and do Test Connection
+
+
+Go to Resources in the navigation window
+---> next go to JDBC
+---> next click on Data Sources
+---> (first page) enter basic data source information ---> by default scope details are there which is (cells:172Cell01:nodes:172Node01:servers:Red1) next ---> mention the data source name as (sample) ---> next mention the JNDI name as (jdbc/sample) ---> click next
+---> (second page) select the JDBC provider which is already created (DB2 Universal JDBC Driver Provider is created)
+---> (third page) enter database specific properties for the data source  (driver type is 4)---> (database name is sample) ---> (server name is mention the IP address) ---> port number is 5000 (which is already mentioned) --->click next
+---> (fourth page) setup security aliases (bottom of the page there is link (Jaas J2c Authentication data) click on that (it will take to another page) ---> mention any name in Alias (Jupiter) next is User id, mention (db2inst1) and password is (sarasu10) click on apply and review changes and syncronize. It will create this link 172cellManager01/jupiter)
+
+now you will return to the first page of Data sources, here click new and complete the same process again (except creating the Jaas J2c Authentication data) ---> (in the fourth page get the details from the drop down as 172cellManager01/jupiter) and click finish. you will comeback to the first page of Data sources.(you can see sample link).
+---> now click on test connection (see if that is successfull or failed)
+
+
+
+                                                    Creating BUSES  (with file store option)
+
+
+
+Go to Service Integration on the navigation window
+---> click on Buses link
+---> click new on the buses page
+---> (first page) create a new service integration bus ---> give any bus name for example (venusBus) (uncheck the security enable checkbox)---> click next
+---> (second page) confirm create a new bus ---> finish
+---> you will comeback to the main page with VenusBus link created on that page.
+---> click on VenusBus
+---> click on Bus Members link in the next page (right side top under Topology)
+---> this will take you to another page (here click on Add) this will take you to another page.
+---> this page (select server,cluster or webshphere MQ server) in this page you can select anything from the three options i selected Server. (click next)
+---> in this page select the type of message store (as of now we are selecting file store) ---> click next
+---> in this page (configure file store) fill the details, ---> in the long directory path mention /mars (example) ---> permanent store directory path (/mars) -- click next
+---> Tune performances ---> click next
+---> Summary ---> finish ---> review changes and syncronise the nodes.
+---> you will come to a page you will find 172Node01:Red1 and server ---> click on the link 172Node01:Red1 (when you click here it will take you to next page)
+---> in this page you will see a link 172Node01:Red1-VenusBus ---> (click on this link)
+
+
+                                                    Now create Destination bus
+
+
+go to Buses page and click on the VenusBus link (this will take you to another page)
+---> in this page click on Destinations which is on the rightside below destination resources.this will take to next page.
+---> in this page you will find two links on the center of the page. on the same page above click on new button, (this will take you to another page)
+---> in this page it will ask you to select destination type (there will be four options queue, Topic Space, Alias and Foreign) ---> choose Queue  from the four options and click next
+---> in the next page it will ask to create a new queue, set new attributes give name starting with destination,(destination_pluto) click next
+---> in this page Assign the queue to a bus member, for example choose (Node=172Node02:Server=Red2) click next
+---> in this page confirm queue creation (you don't have to confirm anything), click finish
+---> Review save changes and synchronize the nodes.
+---> here in this page you can see the created destination as (destination_pluto)
+
+                                                     
+                                          Start Message Enginee (this should be in the start mode while creating Destinations)
+
+
+to start the message engine or check whether it has been started or not
+---> got to Buses ---> click on VenusBus ---> it will take you to the next page
+---> in this page right side top you can see messaging engine ---> click on messaging engine ---> that will take you to another page
+---> in this page you can see the hyperlink (Node=172Node02:Server=Red2), you can see on the same page if this is started, if not you can click on start in this page if the engine is not stared.
+
+For example, if the message engine is not starting if you click on the start button.
+---> stop all the environment
+---> stop dmgr (./stopManager.sh)
+---> start dmgr (./startManager.sh)
+---> syncnode (./syncNode.sh Ip address soap port number of the dmgr)
+---> startnode (./startNode.sh)
+---> start the cluster
+then chek the message engine is started or not (if not click the start button on the same page)
+
+
+
+                                          Creating Buses (with Data store option) very important
+
+
+
+Before creating the buses with data store option.
+
+go to AppSrv01>Bin run this command (./sibDDLGenerator.sh -system db2 -schema kranthi -user db2inst1 -create -statementend ';'>/tmp/abc.sql)
+then run command (more /tmp/abc.sql) then login to database
+login to database run (su -db2inst1)
+then run (db2 connect to sampl)
+then run (db2 -tvf /tmp/abc.sql)
+then run (db2 list tables for all | more
+now go to admin console and configure data store
+
+now got to Service integration then go to Buses and choose new bus and complete the process how we did earlier in this page for creating buses, then destination bus and check whether the message engine is started before creating destination.
+
+
+                                                             JMS Configuration
+
+
+                                                   Creating Queue Connection Factory
+
+
+go to Resources on the navigation window
+---> click on JMS ---> then click on Queue connection factories --->
+---> in this page choose the scope which you want to work on, then click new ---> it will take you to another page.
+---> in this page select one provider with which you can create a Queue connection factory (the three options are (default messaging provider, V5 default messaging provider and Websphere MQ messaging provider) click on the first option (default) and click OK
+---> in this page configuration page, fill in the name, JNDI Name and Bus name (name = qcf_gold, JNDI Name = jms/goldqcf, bus name = venusbus (or whatever is the busname) ---> click OK ---> this will take you to another page
+---> Review changes and syncronize the nodes. here in this page you can see the newly created queue connection factory
+
+
+                                                             Creating Queues
+
+go to Resources on the navigation window
+--->click on JMS ---> then click on Queues
+---> in this page choose the scope which you want to work on, then click new ---> it will take you to another page.
+---> in this page select one provider with which you can create a Queues from the three options here (default messaging provider, V5 default messaging provider and Websphere MQ messaging provider) click on the first option (default) and click OK
+---> in this page configuration page, fill in the name, JNDI Name and Bus name (name = q_gold, JNDI Name = jms/q_gold, bus name = venusbus (or whatever is the busname) ---> click OK ---> this will take you to another page
+---> Review changes and syncronize the nodes. here in this page you can see the newly created queues.
+
+Now install one jms application from local files and hit the application (http://172.29.141.150:/Jms)
+in this new page you have to enter the Queue name and Queue connection factories name (but actually you need to feed jndi name of the Queues and Jndi name of the Queue connection factories. Enter a message in the message box on the same page (this message is carried to the destinations) click send.
+Then you will see a message on the same page that the message was sent successful (if not you have to see if you have feeded the information properly)
+
+Now go to Destinations and check if the message is recevied successfully. Follow below details to see the message.
+go to Buses ---> click on Venusbus ---> then click on destinations in the next page --->click on the destination name in the next page (or a hyperlink) ---> then click on messages ---> then click on the link which you are seeing ---> after that you can see the message body---> once you click the message body you can see the message.
+
+
+
+
+                                                Introduction of Garbage collection (GC) and different types.
+
+
+Garbage collection (GC) is an integral part of the Java Virtual Machine (JVM) as it collects unused Java heap memory so that the application can continue allocating new objects. The effectiveness and performance of the GC play an important role in application performance and determinism. The IBM JVM provided with IBM WebSphere Application Server V8 (on supported platforms) provides four different GC policy algorithms:
+
+    -Xgcpolicy:optthruput
+    -Xgcpolicy:optavgpause
+    -Xgcpolicy:gencon
+    -Xgcpolicy:balanced
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DB2 commands
+
+
+(su - db2inst1) --- for logging into the database
+(db2start) --- to start the db2
+(db2stop) --- to stop the db2
+(db2 list db directory)
+(db2 connect to sample)
+(db2level)
+(db2 list activate databases)
+
+
+cd java
+
+Directory location  --> opt/IBM/db2/v9.7/Java
+
+Native path --> opt/IBM/db2/v9.7
+
+creating a new JDBC Connection
+
+db username : db2inst1
+pwd         : sarasu10
+
+username : dasusr1
+pwd      : sarasu10
+
+JNDI name is Jdbc/sample (this is very important)
+
+Hitting the application
+
+(Http://172.29.140.90/sampleJDBC/JDBCTestServlet)
+
+--------------------------------
+--------------------------------
+
+Configur webserver (ihs) (Httpserver)
+
+path - /opt/IBM/HTTPServer
+
+port number -80
+HTTP admin - 8008
+webserver 1 -default
+Hostname : ip address
+
+serverstart - ./apachctl -k start
+             ./apachctl
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                     ----------------------------Creating a profile on PUTTY-----------------------------------------
+
+Go to path /usr/IBM/WebSphere/AppServer/bin  --> run this command to create a profile (./manageprofiles.sh -create -templatePath /usr/IBM/WebSphere/AppServer/profileTemplates/default -samplePassword WebAS -hostName 172.29.140.90)
+Step 1 .The first step is to create the profile.
+
+Step 2 go to path /usr/IBM/WebSphere/AppServer/logs/manageprofile run this command (more AppSrv01_create.log)
+The second step is to know what ever is the profile name whether the profile got created successfull press (shift+g) in the vi editor to go the endo of the page and see the success message as (INSTCONFSUCCESS)
+
+Step 3 go to path /usr/IBM/WebSphere/AppServer/profiles/AppSrv01/bin then run command (./startServer.sh server1) to start the server.
+The third step is to start the server.
+
+Step 4 go to path /usr/IBM/WebSpher/AppServer/profiels/AppSrv01/logs then run command (more AboutThisProfile.txt)
+The fourth step is to know the port numbers of the admin console port and secure admin console port etc
+
+
+                               ----------------------Creating a profile with Security-------------------------
+
+
+The first command will change to create a profile with Security:
+
+./manageprofiles.sh -create -templatePath /usr/IBM/WebSphere/AppServer/profileTemplates/default -enableAdminSecurity true -adminUserName wasadmin -adminPassword sarasu10 -samplePassword WebAS -hostName 172.29.140.90
+
+(The other three steps are comman to creating a profile)
+
+
+                       ------------------------------------Creating a dmgr-----------------------------------------------------
+
+./manageprofiles.sh -create -templatePath /usr/IBM/WebSphere/AppServer/profileTemplates/dmgr -enableAdminSecurity true -adminUserName wasadmin -adminPassword sarasu10 -samplesPassword WebAS -hostName 172.29.140.90
+
+Step2 : follow the sameprocess which we followed to create the profile for the second step to check the (INSTCONFSUCCESS)
+
+Step3 : here you need run command ./startManager.sh in the path /usr/IBM/WebSphere/AppServer/profiles/dmgr01/bin
+
+step4 : this step would be the same which we followed to create the profile to check the port numbers in (more AboutThisProfile.txt)
+
+
+
+        -------------------------------- Creating a Custom profile / managed profile-----------------------
+
+./manageprofiles.sh -create -templatePath /usr/IBM/WebSphere/AppServer/profileTemplates/managed -samplePassword WebAS -hostName 172.29.140.87
+
+Note : after profileTempleates you have to mention managed to create a custom or managed profile.
+
+Note : Custom01 will be created in the AppServer/Profiles directory
+
+
+                       -----------------------------------Federation of Node----------------------------------------------------
+
+
+After creating the custom profile / node, you need to add the node to the dmgr01 (this process is called federation of a node)
+Go to Custom01 --> bin run command (./addNode.sh 172.29.140.90 8879)
+
+Note : 8879 in the above command is the SOAP port of the dmgr (to know the dmgr port number you need to check in the AboutThisProfile.txt of dmgr01)
+
+Then after adding the node to the dmgr01, start the node with the command (./startNode.sh)
+
+Note : for reference you should remember to use (./stopNode.sh) to stop the node.
+                                           
+
+                      -----------------------------------syncNode-----------------------------------
+
+
+first stop the node or nodes using (./stopNode.sh) command
+
+then you (./syncNode.sh) should be used to sync the servers with the dmgr
+
+then start the node or nodes using (./startNode.sh) command
+
+then start the dmgr using (./startManager.sh)
+
+
+                 -----------------------------------Deleting a profile-----------------------------------
+
+
+command (./manageprofiles.sh -delete -profileName AppSrv01)-----------cd /usr/IBM/W*/appserver/bin
+then
+command (rm -rf AppSrv01)-------cd /usr/IBM/W*/appserver/profiles
+(./manageprofiles.sh -validateRegistry)-----cd /usr/IBM/W*/appserver/bin
+(./manageprofiles.sh -validateAndUpdateRegistry)------cd /usr/IBM/W*/appserver/bin
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------**********************************************************************************************************************************************************************
+                               
+                                   
+Unix Commands
+
+
+"pwd" present working directory
+"ls" this command will list the files and directories in this perticular directory
+"ls -ltr"
+"ls -lrt"
+"ls -1"
+"cd (filename)"
+"cd .." (to move to the previous directory
+mkdir
+rm -rf (filename) or (filenames) with space
+rm -rf * (this will remove all the directories and sub directories in that perticular directory)
+df -g (to check the space in different directories)
+"ps -ef | grep filename"  (to now the processes which are running currently with whatever filename or word we give .. example Java, dmgr)
+"chfs -a size=-1G /tmp" this command will minus one GB from /tmp directory
+"chfs -a size=+1G /opt" this command will add one GB to /opt directory
+"id" this command will show you from which login you have logged in
+"tar -xvf filename" this command is used to extract the file
+"kill -9 process-id" this command will kill the process forcebly
+"jar -xvf filename" this command will extract the files from .zip files
+"gzip -d filename" to unzip the gz file
+"su" this command will take you to the root directory
+"ifconfig -a"
+"tail -f"
+"chmod 777 filename" this command will give the full permissions to the particular file.
+"chmod -r 777 filename" this command will give full permissions to all the files in this particular folder.
+"ls -l | grep filename" this command will display lines in the output of the ls command that match the string filename.
+"ps -wf | grep filename"
+"topas"
+"passwd" to change the password
+"ssh 172.29.147.3"
+"shutdown -r" (restarting an aix box)
+"more filename" this command will open all the files in AIX
+"less filename" this command will open all the files in Linux
+"smit" this command will change day and time of that particular IP / machine
+"vi |etc|hosts"
+
+New commands
+tar -cvf" --- create a tar file (how can we create tar file)
+tar -xvf ---- (how to open the content of a tar file)
+             (how to check the port number if it is listening or not in which command do we use)
+prtconf -m  --- (how to check the AIX memory it is using) this is the command
+what is the command we use to login from 151 and look for 150
+what is softlink and hardlink
+How to know in systemOut.log what is getting updated (which command you use)
+How to create a user to add that user to a group (what command we use to create a user ) (what command we use to add to the group)
+Practice all Vi editor commands
+How to know how many profiles are there in the machine with a command
+How to know the port details of a profile (two ways are there)
+What are different types of profiles
+How many types of logs are there
+How to deploy applications
+How to take the backup of an application after deploying
+what are the benefits of clustering (failover)
+How to open Infocenter
+How to check if product has installed successfully
+How to check the version of the product
+How to check logs
+What is Reverse proxy and How to do Reverse proxy
+How do you do application backup
+
+
+_____________________________________________________________________________________________________________________________________________
+Check Listening Ports in AIX
+To Determine which processes have listening ports on AIX
+
+The open source "lsof" tool is great for determining what process has a port open.  Unfortunately lsof isn't included with AIX so if you just want to quickly identify which process is using a port and you don't have lsof you can use "netstat -Aan" combined with the "rmsock" command.  
+
+For example, lets say I want to identify which process is listening on port 1334.   I would first run:
+
+# netstat -Aan | grep LISTEN | grep 1334
+
+f100050000b05bb8 tcp4       0      0  *.1334      *.*  LISTEN
+
+The socket 0xf100050000b05808 is being held by proccess 5767378 (writesrv).
+
+You can see that port 1334 is open by the writesrv process with PID 5767378.
+
+You then take the first column (f100050000b05bb8 in this example) and run the following command:
+
+# rmsock f100050000b05bb8 tcpcb
+ 
+If you want to see all of the TCP listening ports and which processes and PID's are assigned to them, run the following script:
+!/usr/bin/ksh
+print "Port            PID              Process"
+netstat -Aan | grep LISTEN | awk '{print $1 " " $5}' | while read pcb port; do
+       out=`rmsock $pcb tcpcb`
+       if echo "$out" | grep "Kernel Extension" > /dev/null; then
+               printf "%-15s Kernel Extension\n" "$port"
+       else
+               pid=`echo "$out" | sed -n 's/.*pro[c]*ess \([0-9][0-9]*\) .*/\1/p'`
+               if [ -n "$pid" ]; then
+                       proc=`ps -p $pid | tail -n 1 | awk '{print $4}'`
+                       printf "%-15s %-16s $proc\n" "$port" $pid
+               else
+                       echo "Error, Line not recognized \"$out\" for Port $port"
+               fi
+fi
+done
+
+Here is example output from the script:
+
+
+*.13            4063356          inetd
+*.21            4063356          inetd
+*.23            4063356          inetd
+*.25            1835206          sendmail
+*.37            4063356          inetd
+*.24575         15597582         java
+*.111           Kernel Extension
+*.199           3539070          snmpdv3ne
+*.49293         35389582         rwrun
+*.512           4063356          inetd
+*.513           4063356          inetd
+*.514           4063356          inetd
+*.25075         15597582         java
+*.657           6095060          rmcd
+192.168.1.32.12360 51052606         java
+*.25575         15597582         java
+*.1334          5570768          writesrv
+*.1536          22610158         tnslsnr
+*.1641          34472056         tnslsnr
+*.2049          Kernel Extension
+192.168.1.23.38199 20316174         java
+192.168.1.25.39654 25559104         java
+*.4458          6750376          httpd
+*.6000          5373952          X
+*.6000          5373952          X
+*.6001          6619338          X
+*.6001          6619338          X
+*.6112          4063356          inetd
+*.55731         Kernel Extension
+127.0.0.1.52089 34472056         tnslsnr
+_________________________________________________________
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+
+
+
+
+*************checking important things in websphre / AIX******************
+
+*****To check the version of the product installed (websphere)***********
+
+Go to path /usr/IBM/WebSphere/AppServer/bin then run command ./versionInfo.sh)
+
+*****To check the version of the HTTPServer*******************************
+
+Go to path /usr/IBM/HTTPServer/bin then run command ./versionInfo.sh
+
+*****To check the version of the Plugins***********************************
+
+Go to path /usr/IBM/HTTPServer/plugins/bin then run command ./versionInfo.sh
+
+***************************************************************************
+*************To connect to Tight VNC Viewer********************************
+give command (vncserver)
+
+***************************************************************************
+
+
+------------------------------------------------------
+
+
+Q.1. What is ND?
+A. Network Deployment
+
+Q.2. What is a Cluster?
+A. Cluster is a logical name assigned to group of servers (JVMs).
+
+Q.3. What are the different types of clusters?
+A. Horizontal and Vertical cluster
+
+Q.4. What is Horizontal and Vertical cluster?
+A. A vertical cluster has cluster members on the same node, or a physical machine. A horizontal cluster has cluster members on multiple nodes across many machines in a cell.
+
+Q.5. What is the difference between WAS v5.x and 6.x?
+A. New concepts like Profiles and SIB (System Integration Bus) are introduced in v 6.0.
+
+Q.6. What is the difference between an Application Server and a Web Server?
+A. Application Servers hosts the java applications and Web Server is basically used for serving static HTML pages.
+
+Q.7. What is a Plugin? Where is it installed?
+A. WebSphere plug-in integrates with the HTTP Server and directs requests for WebSphere resources (servlets, JSPs, etc.) to the Websphere application server. The WebSphere plug-in uses a configuration file called plugin-cfg.xml file to determine which requests are to be handled by WebSphere. As applications are deployed to the WebSphere configuration, this file must be regenerated (typically using the Administration Console) and distributed to all Web servers, so that they know which URL requests to direct to WebSphere.
+
+Q.8. What is the advantage of using Clusters?
+A. Clustering provides workload management and failover of URL and EJB requests. The cluster can be on the same node or on different nodes.
+
+Q.9. What is JDBC, JNDI?
+A. JDBC ? Java Database Connectivity
+JNDI ? Java Naming and Directory Interface.
+
+Q.10. What is the command to add a node to the deployment manager?
+A. $WAS_HOME/bin/addNode.sh NDHostName SOAPport
+
+Q.11. With Java2Security enabled on WebSphere Application Server, and you are performing an Enterprise Application deployment, what security file is open during deployment?
+A. was.policy
+
+Q.12. Java2Security is enabled at the global level, and an application is deployed to a clustered vm, with a pair of cluster members.   The application encountered performance problems due to Java2Security.   The application team receives a waiver to disable Java2Security.   Does J2Security need to be disabled at the global level or can it be disabled at the server level, leaving Java2Security enabled for other applications?
+A. It can be disabled at the server level leaving it enabled for any other applications.
+
+Q.13. What directory / directories might you find the following IBM script in a Network Deployment configuration?
+PropFilePasswordEncoder.sh
+A.under the bin directory for both the nodeagent / deployment manager
+Q.14. Identify how you would use the PropFilePasswordEncoder.sh to encode the password for the following userid in the sas.client..props
+# RMI/IIOP user identity
+com.ibm.CORBA.loginUserid=websphere
+com.ibm.CORBA.loginPassword=test123
+A.
+./bin/ PropFilePasswordEncoder.sh ../properties/sas.client.props com.ibm.CORBA.loginPassword
+
+Q.15. Identify the steps to enable the PMI (Performance Monitoring Interface).
+A. From the Admin Console -> Monitoring and Tuning -> Performance Monitoring Infrastructure ? Select the sever that you want to enable and select the Enable the Performance Monitoring Infrastructure.
+
+Q.16. What is Garbage Collection?
+A. Garbage collection is a process of automatically freeing objects that are no longer referenced by the program.
+
+Q.17.  Where would you enable Verbose Garbage Collection?
+A.  From the Admin Console:
+       Application Server -> ServerName -> Process Definition -> Java Virtural Machine ? Select verbose garbage collection radio button.
+
+Q.18. What log file would the verbose garbage collection output appear in?
+A.  native_stdout.log
+
+Q 19. What is the IBM utility script that you can run to take a backup of the WebSphere configuration?
+A. backupConfig.sh
+
+Q. Using the Admin Console, where would you find an applications context root?
+A. Enterprise Application -> Application - > Additional Properties ?> View deployment descriptor.
+
+Q. Using the Admin Console, how to find out the JVM HTTP port?
+A.  WAS 5.x
+? Admin Console -> Servers -> Application Servers -> JVM -> Web Container -> HTTP Transports.
+WAS 6.x
+-        Admin Console -> Servers -> Application Servers -> JVM -> Expand Ports under communications.
+
+Q. How to find the admin console port?
+A.
+
+Q. What is a Replication Domain?
+A. A replication domain is a collection of replicator entry (or replicator) instances used by clusters or individual servers within a cell.
+
+All replicators within a replication domain connect with each other, forming a network of replicators.
+
+The default is to define a replication domain for a cluster when creating the cluster. However, replication domains can span across clusters.
+
+Global default settings apply to all replication use for a given replication domain across a cell. Most default settings tune and control the behavior of replicator entries in managed servers across the cell. Such default settings control the use of encryption or the serialization and transferring of objects. Some default settings tune and control how specific WebSphere Application Server functions (for example, session manager and dynamic caching) leverage replication, such as session use of partitions.
+
+For situations that require settings values other than the default, change the values for a given replication domain on the Internal Replication Domains page. Settings include various resource allocation, replication strategies (such as grouping or partitioning) and methods, as well as some security related items.
+
+If you are using replication for HttpSession failover, you might also need to filter where the session replicates. For example, only replicate to two places out of many. The global default settings define the partition size or number of groups and the session manager settings define the groups to which a particular instance belongs.
+
+Filtering is less important if you are using replication to distribute information on invalid data and actual cached data maintained by a Web container's dynamic caching. Replication does not occur for failover as much as for data synchronization across a cluster or cell when you likely want to avoid expensive costs for generating data potentially needed across those various servers.
+
+Note that you can filter or segment by using multiple replication domains.
+
+Q. What is SIB (Service Integration Bus)?
+
+Q. What is the difference between SystemOut.log and SystemErr.log?
+
+Q. What does native_stdout.log contains?
+
+Q. What are the SDK versions supported on WAS 4, 4.X, 5, 5.X, 6, 6.X and 7?
+A. WAS 7 ? SDK 1.6
+WAS 6.1.x ? SDK 1.5
+WAS 6.0.x ? SDK 1.4.2
+WAS 5.1.1 ? SDK 1.4.2
+WAS 5.1 ? SDK 1.4.1
+WAS 5.0.x ? SDK 1.3.1
+
+Q. How to check WAS Version / Build Level?
+A. ./WAS_HOME/bin/versionInfo.sh
+
+Q. What is the Default SOAP port number?        
+A. 8879
+
+Q. What are different ways to capture heap dumps for a Websphere JVM?
+
+Q. What do you understand by the term JMS?
+A. Java Message Services, JMS, is Sun's standard API for message queuing systems. Message queuing systems form the front-line interface between businesses (B2B) and for Enterprise Application Integration (EAI). As such, message queuing systems are often called "middleware" because they operate in the middle -- between other systems and between enterprises.
+
+Q. What are the different JMS providers available in different WAS versions?
+A. WAS 6
+WebSphere Embedded Messaging
+WebSphere MQ
+Generic
+V5 Default Messaging
+
+WAS 5
+Generic JMS Provider
+WebSphere JMS Provider
+WebSphere MQ JMS Provider        
+
+Q. What are console user roles available in WAS 5 and 6?
+A. WAS 5 and WAS 6
+Administrator
+Configurator
+Operator
+Monitor
+
+Q. What are the authentication mechanisms available for Global Security in WAS?
+A. 1. LTPA (Light weight Third Party Application)
+2. SWAM (Simple WebSphere Authentication Mechanism)
+
+Q. What are the User Registries supported by WebSphere for Global Security?
+A. Local OS, LDAP and Custom User Registry
+
+Q. How to change the JVM/Process/Diagnostic Trace log file locations for any JVM?
+A. 1. Login to the Admin Console.
+
+
+
+Q. What are the different types of logs available in WebSphere?
+A.
+Diagnostic Trace
+JVM Logs
+Process Logs
+IBM Service Logs
+
+--------
+As suggested by trainer work on practising the below things
+
+checking logs --- this is very important
+checking the serverstatus
+checking the versions
+checking the systemOut.log
+checking error logs
+
+---------------------
+
+
+
+Abbriviations:
+
+SSL --- Secure sockets Layer
+API --- Application Programming Interface
+LDAP --- LightWeight Directory Access Protocol
+Dmgr --- Deployment Manager
+ND --- Network Deployment
+JVM --- java virtual Machine
+
+
+***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+
+                                                              BPM Introduction: Installation and Configuration
+
+Below are the Topics which need to be noted : 
+Process Center
+Process Server
+
+Topologies:
+Single Cluster and Three Cluster
+
+Topologies : examples for Single Cluster and Three Cluster.
+Single Cluster - Process Center
+Single Cluster - Process Server
+
+Three Cluster - Process Center
+Three Cluster - Process Server
+
+Below three are Cluster Capabilities:
+1.Application Cluster
+2.Messaging Cluster
+3.Support Cluster
+
+Example : Requirement can be single cluster with Process Center or Single Cluster with Process Server and Three Cluster with Process Center or Three Cluster with Process Server.
+
+Below are six BPM Consoles:
+1.Admin Console (9060 default port)
+2.BPC (Business Process Choreographer) (The port details to open BPC will be there in Support Cluster)
+3.Process Portal
+4.Business Space
+5.Processs Admin
+6.Process Center
+
+Below are the three Database Properties :
+1.BPMDB (Process Server Database)
+2.PDWDB (Performance Database)
+3.CMNDB (Common Database)
+
+Note:
+
+Oracle default port is 1521
+
+
+                                                  BPM Installation
+
+Below is the installation process:
+
+Assume your ip is 172.29.149.63 and then you want to copy the files (software) from ip 172.29.147.3
+First check the space is the /usr and /home and /tmp and /opt folders. If needed space, increase the space using (chfs -a size=+10GB)
+Then create a empty directory with software as the directory name in your terminal in /usr directory
+Now copy the BPM8.5 software using the SCP command in the path /usr/software --- (scp -r u0009930@172.29.147.3:/usr/software/BPM8.5 .) (the dot.is very important, it represents the present working directory)
+
+Before installation go to path /usr/Software/BPM8.5 and run command Ulimit -n 12000 (instead of 8800 which is mentioned by default)
+Now go to Vi editor using this command (vi /etc/securitylimits) here edit 8800 to 12000 (if not applied with above command)
+Here in the Vi editor you can see the umask value as 022.
+Set the umask value to 077 with using this command > umask 077
+
+chdev -1 SYS0 -a maxuproc='256'
+
+Go to path /usr/software/BPM8.5/IM and run command > ./installc -acceptLicence (L is uppercase)
+Now go to /opt/IBM/InstallationManager/eclipse and run command > vncserver
+Then open TightVNC Viewer (this is like terminal only in AIX, where you can run the commands) go to the programs and click on TightVNC Viewer and connect to the present IP which you are working on (mention the ip address details)
+Now run command ./IBMIM
+
+After running this command, the IM (Installation Manager) GUI will open.
+Go to the "FILE" and select "PREFERENCES". This will take you to the page where you can add Repositories,(means select add repositories button). The path is /usr/IBM/WebSphere/AppServer/BPM8.5 and select repository at last. (Basically you need to mention the path details where the BPM8.5 software is located).
+Next apply and click OK
+Next click other options in next comming pages.(checkin WAS8.5.0 and BPM8.5 boxes and click OK)
+Then click on the install button.
+On the same page you should see a message, the installation process is completed successfully.
+
+To check the product installed successfully, go to /usr/IBM/WebSphere/AppServer/logs/Postinstall run command > more Postinstall.log (in this log file you can see the message below <INSTSuccess>
+
+To check the version installed successfully, go to path /usr/IBM/WebSphere/AppServer/bin run command > ./versionInfo.sh
+
+
+                                                           BPM8.5 Configuration:
+
+
+go to the actual path run commands (cd BPM) then (cd dbscripts) to create dbscripts then choose Oracle (cd Oracle) and then (cd create)
+cd BPM
+cd dbscripts
+cd oracle
+cd create
+here you can see command (createUser.sql) - (user means database in oracle)
+
+Three databases need to be created - BPMdb - create
+                                     CMNdb - create
+                                     PDWdb - create
+go to path --- BPM/Sample/config/Advanced > do ls. (here you can see the cluster properties which are available, you can choose based on the requirement)
+
+Create Databases:
+
+copy file createUSer.sql to present working directory using the scp command. (this is done because if you do any mistake while editing the file, you will have the original file available to use it again.)
+
+scp -r u0012874@172.29.148.154:/tmp/createUser.sql
+
+CREATE USER BPMDB IDENTIFIED BY sarasu10;
+grant connect, resource, unlimited tablespace to BPMDB;
+grant create view to BPMDB;
+grant java user priv to BPMDB;
+grant execute on dbms_lock toBPMDB;
+
+CREATE USER PDWDB IDENTIFIED BY sarasu10;
+grant connect, resource, unlimited tablespace to PDWDB;
+grant create view to PDWDB;
+grant java user priv to PDWDB;
+grant execute on dbms_lock to PDWDB;
+
+Create USER CMNDB IDENTIFIED BY sarasu10;
+grant connect, resource, unlimited tablespace to CMNDB;
+grant create view to CMNDB;
+grant java user priv to CMNDB;
+grant execute on dbms_lock to CMNDB;
+
+do ls -ltr createUser.sql
+chmod -r 777 createUser.sql
+
+cd usr/software/app/oracle/product/11.2.0/dbhome1/bin run command > sqlplus
+mention the belwo details:
+$ username : sys as sysdba (mention)
+$ Enter password : sarasu10 
+Sql> @/tmp/createUser.sql (when you run this command here, you will see below message.)
+Grant success
+Grant success
+Grant success
+Grand success
+user created
+Grant success
+Grant success
+Grant success
+Grant success
+User created
+Grant success
+Grant success
+Grant success
+Grant success
+user created
+
+now go to box 154 where BPM is installed.
+
+Now Create the deployment environment in BPM
+
+usr/IBM/WebSphere/AppServer/BPM/Samples/config/advanced (now run the copy command) (copy command is (cp -r source filedestination)
+Run -> cp -r Advanced-PS-SingleClusters-Oracle.properties /tmp
+now go to 87 box ip where you have logged in with db details:
+run command > "startup"  to start
+
+Create Deployment Environment in BPM
+
+Go to path usr/IBM/WebSphere/AppServer/BPM/Samples/config/advanced and run command > ? (i forgot,get this information from trainer tomorrow)
+Edit this properties file where ever required below.
+Deployment environment basic properties
+Deployment environment adminstrator authentication alias
+Database user authentication alias 
+Database user authentication alias for process server database
+Database user authentication alias for performance data warehouse database
+Deploymet environment admin role and authentication alias association
+Cell (WAS) admin auth alias
+Cell role and auth alias association
+Deployment Manager properties
+Properties of Each Node
+Cluster member properties
+Database properties
+Database role and auth alias association
+Database role and authentication alias association
+Database properties performance DB
+after editing exit the file using ":Wq!"
+
+Now go to path /usr/IBM/WebSphere/AppServer/bin -> ./BPMConfig.sh -create -de /tmp/Advanced-PS-ThreeClusters-Oracle.properties
+The above command will configure the deployment manager and create the deployment manger profile.
+You can see INSTCONFSUCCESS: Success: Dmgr profile now exists.
+It also starts the deployment manager profileDmgrProfile
+Configuring the managed node profiles
+creating the managed node Node1 profiles
+Node Node1 has been successfully federated
+configuring the databasws
+congigurig the cell
+configurint the deployment manager
+proveisioning deployment environment
+Generating database configuration files to /usr/IBM/WebSpere/AppServer/profiles/PSDmgrProfile/dbscripts/PSDel.
+Performing security configuration
+Creating clusters
+configuring dats sources
+configuring the databases
+configuring clusters
+operation completed successfully
+configurig the node
+creating cluste members
+synchronizing node Node1
+Tool information is being logged in file /usr/IBM/WebSphere/AppServer/Profiles/Node1Profile/logs/syncNode.log
+The configuration for node Node1 has been synchronized with Deploymnent Manager 172.29.149.92: 8879
+Deployment Manager Stopping
+Server stop request issued. Server dmgr stop completed
+BPMConfig completed successfully
+
+Now open the browse window and mention the ip details with the console name check whether we can access or not.
+
+1.Admin console - (https://172.29.148.154:9060/admin)
+login user name : Bpmadmin
+login password : sarasu0
+
+2. Business Process Choreographer (BPC) - (https://172.29.148.154:9080/bpc)
+login user name : Bpmadmin
+login password : sarasu0
+
+3.Process Portal - (https://172.29.148.154:9080/ProcessPortal)
+login user name : Bpmadmin
+login password : sarasu0
+
+4.BusinessSpace - (https://172.29.148.154:9080/BusinessSpace)
+login user name : Bpmadmin
+login password : sarasu0
+
+5.Process Admin - (https://172.29.148.154:9080/BusinessSpace)
+login user name : Bpmadmin
+login password : sarasu0
+
+6. Process center console:
+BPC application will not be there in Support Cluster.
+
+Donot forget to Start the dmgr using ./startManager.sh
+
+Then start the Node1 and start the Node2
