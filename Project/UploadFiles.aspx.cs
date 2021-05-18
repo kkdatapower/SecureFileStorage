@@ -16,7 +16,7 @@ public partial class UploadFIles : System.Web.UI.Page
         Hiding,
         Filling_With_Zeros
     };
-    SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=secureUpload;Integrated Security=True");
+    SqlConnection con = new SqlConnection(@"Server=tcp:securestoragedatabase.database.windows.net,1433;Initial Catalog=secureUpload;Persist Security Info=False;User ID=krishna;Password=Cheppanu$911;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
 
     protected void Page_Load(object sender, EventArgs e)
     {
