@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,8 +16,13 @@ using System.Web.UI.WebControls;
 
 public partial class ViewDetails : System.Web.UI.Page
 {
+    public enum State
+    {
+        Hiding,
+        Filling_With_Zeros
+    };
     SqlConnection con = new SqlConnection(@"Server=tcp:securestoragedatabase.database.windows.net,1433;Initial Catalog=secureUpload;Persist Security Info=False;User ID=krishna;Password=Cheppanu$911;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-
+    //SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=secureUpload;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
         string ses = (string)Session["status"];
@@ -196,10 +202,183 @@ public partial class ViewDetails : System.Web.UI.Page
         return cipherText;
     }
 
+    public static Bitmap embedText(string text, Bitmap bmp)
+    {
+        // initially, we'll be hiding characters in the image
+        State state = State.Hiding;
+
+        // holds the index of the character that is being hidden
+        int charIndex = 0;
+
+        // holds the value of the character converted to integer
+        int charValue = 0;
+
+        // holds the index of the color element (R or G or B) that is currently being processed
+        long pixelElementIndex = 0;
+
+        // holds the number of trailing zeros that have been added when finishing the process
+        int zeros = 0;
+
+        // hold pixel elements
+        int R = 0, G = 0, B = 0;
+
+        // pass through the rows
+        for (int i = 0; i < bmp.Height; i++)
+        {
+            // pass through each row
+            for (int j = 0; j < bmp.Width; j++)
+            {
+                // holds the pixel that is currently being processed
+                Color pixel = bmp.GetPixel(j, i);
+
+                // now, clear the least significant bit (LSB) from each pixel element
+                R = pixel.R - pixel.R % 2;
+                G = pixel.G - pixel.G % 2;
+                B = pixel.B - pixel.B % 2;
+
+                // for each pixel, pass through its elements (RGB)
+                for (int n = 0; n < 3; n++)
+                {
+                    // check if new 8 bits has been processed
+                    if (pixelElementIndex % 8 == 0)
+                    {
+                        // check if the whole process has finished
+                        // we can say that it's finished when 8 zeros are added
+                        if (state == State.Filling_With_Zeros && zeros == 8)
+                        {
+                            // apply the last pixel on the image
+                            // even if only a part of its elements have been affected
+                            if ((pixelElementIndex - 1) % 3 < 2)
+                            {
+                                bmp.SetPixel(j, i, Color.FromArgb(R, G, B));
+                            }
+
+                            // return the bitmap with the text hidden in
+                            return bmp;
+                        }
+
+                        // check if all characters has been hidden
+                        if (charIndex >= text.Length)
+                        {
+                            // start adding zeros to mark the end of the text
+                            state = State.Filling_With_Zeros;
+                        }
+                        else
+                        {
+                            // move to the next character and process again
+                            charValue = text[charIndex++];
+                        }
+                    }
+
+                    // check which pixel element has the turn to hide a bit in its LSB
+                    switch (pixelElementIndex % 3)
+                    {
+                        case 0:
+                            {
+                                if (state == State.Hiding)
+                                {
+                                    // the rightmost bit in the character will be (charValue % 2)
+                                    // to put this value instead of the LSB of the pixel element
+                                    // just add it to it
+                                    // recall that the LSB of the pixel element had been cleared
+                                    // before this operation
+                                    R += charValue % 2;
+
+                                    // removes the added rightmost bit of the character
+                                    // such that next time we can reach the next one
+                                    charValue /= 2;
+                                }
+                            }
+                            break;
+                        case 1:
+                            {
+                                if (state == State.Hiding)
+                                {
+                                    G += charValue % 2;
+
+                                    charValue /= 2;
+                                }
+                            }
+                            break;
+                        case 2:
+                            {
+                                if (state == State.Hiding)
+                                {
+                                    B += charValue % 2;
+
+                                    charValue /= 2;
+                                }
+
+                                bmp.SetPixel(j, i, Color.FromArgb(R, G, B));
+                            }
+                            break;
+                    }
+
+                    pixelElementIndex++;
+
+                    if (state == State.Filling_With_Zeros)
+                    {
+                        // increment the value of zeros until it is 8
+                        zeros++;
+                    }
+                }
+            }
+        }
+
+        return bmp;
+    }
     protected void Button1_Click(object sender, EventArgs e)
     {
         try
         {
+
+            string uploadFileName, uploadKey;
+            uploadFileName = FileUpload1.FileName.ToString();
+            uploadKey = TextBox1.Text.ToString();
+            if(String.IsNullOrEmpty(uploadFileName) || String.IsNullOrEmpty(uploadKey))
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Please fill the details');", true);
+                return;
+            }
+            string file1 = "", path = "";
+            file1 = FileUpload1.FileName;
+            path = Server.MapPath("~\\DecFilesTemp\\");
+            FileUpload1.SaveAs(path + file1);
+
+            string images;
+            images = FileUpload1.FileName;
+            //paths = Server.MapPath("~\\images\\");
+            //FileUpload2.SaveAs(path + images);
+
+            Bitmap b = new Bitmap(path + images);
+            byte[] op1 = ConvertBitmapToByteArray(b);
+            Bitmap b1 = embedText(TextBox1.Text, b);
+
+            byte[] op = ConvertBitmapToByteArray(b1);
+
+
+            string images1, paths;
+            images1 = FileUpload1.FileName;
+            paths = Server.MapPath("~\\images\\");
+            //FileUpload2.SaveAs(paths + images);
+
+            Bitmap b2 = new Bitmap(paths + images1);
+            byte[] op2 = ConvertBitmapToByteArray(b2);
+            Bitmap b3 = embedText(TextBox1.Text, b);
+
+            byte[] op3 = ConvertBitmapToByteArray(b3);
+
+            bool res;
+
+            res = StructuralComparisons.StructuralEqualityComparer.Equals(op3, op1);
+
+            if (!res)
+            { 
+            
+                Page.ClientScript.RegisterStartupScript(GetType(), "msgbox", "alert('Details are not correct ');", true);
+                return;
+        }
+
             string uid = Request.QueryString["ID"];
             string fid = Request.QueryString["FID"];
 

@@ -17,7 +17,7 @@ public partial class UploadFIles : System.Web.UI.Page
         Filling_With_Zeros
     };
     SqlConnection con = new SqlConnection(@"Server=tcp:securestoragedatabase.database.windows.net,1433;Initial Catalog=secureUpload;Persist Security Info=False;User ID=krishna;Password=Cheppanu$911;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-
+    //SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=secureUpload;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
         string ses = (string)Session["status"];
@@ -122,8 +122,8 @@ public partial class UploadFIles : System.Web.UI.Page
         System.Drawing.Image img1 = byteArrayToImage(op);
         string spath = Server.MapPath("~\\Password\\");
 
-        img1.Save(spath + "Enc_" + FileUpload2.FileName);
-        Image2.ImageUrl = spath + "Enc_" + FileUpload2.FileName;
+        img1.Save(spath +  FileUpload2.FileName);
+        Image2.ImageUrl = spath + FileUpload2.FileName;
         string com = "";
         SqlCommand cmd;
         com = "insert into lsb(op) values (@data);";
@@ -217,6 +217,7 @@ public partial class UploadFIles : System.Web.UI.Page
         sda.Fill(ds);
 
 
+
         MailMessage mail = new MailMessage();
         SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
         mail.From = new MailAddress("kk.datapower@gmail.com");
@@ -224,9 +225,9 @@ public partial class UploadFIles : System.Web.UI.Page
         if (ds.Tables[0].Rows.Count > 0)
         {
             string eml = ds.Tables[0].Rows[0][0].ToString();
-            int eml1 = Convert.ToInt16(eml);
-            eml1 = eml1 + 1;
-            email = eml1.ToString();
+            //int eml1 = Convert.ToInt16(eml);
+            //eml1 = eml1 + 1;
+            email = eml.ToString();
         }
         else
         {

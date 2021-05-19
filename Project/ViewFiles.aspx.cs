@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 public partial class ViewFiles : System.Web.UI.Page
 {
     SqlConnection con = new SqlConnection(@"Server=tcp:securestoragedatabase.database.windows.net,1433;Initial Catalog=secureUpload;Persist Security Info=False;User ID=krishna;Password=Cheppanu$911;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-
+    //SqlConnection con = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=secureUpload;Integrated Security=True");
     protected void Page_Load(object sender, EventArgs e)
     {
         string ses = (string)Session["status"];
