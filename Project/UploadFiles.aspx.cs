@@ -220,7 +220,7 @@ public partial class UploadFIles : System.Web.UI.Page
 
         MailMessage mail = new MailMessage();
         SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-        mail.From = new MailAddress("kk.datapower@gmail.com");
+        mail.From = new MailAddress("kk@gmail.com");
         string email = "";
         if (ds.Tables[0].Rows.Count > 0)
         {
@@ -242,7 +242,7 @@ public partial class UploadFIles : System.Web.UI.Page
         SmtpServer.EnableSsl = true;
         SmtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
         SmtpServer.UseDefaultCredentials = false;
-        SmtpServer.Credentials = new System.Net.NetworkCredential("kk.datapower@gmail.com", "Kishore14");
+        SmtpServer.Credentials = new System.Net.NetworkCredential("kk", "");
 
         //Attachment
         System.Net.Mail.Attachment attachment;
